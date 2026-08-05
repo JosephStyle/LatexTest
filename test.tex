@@ -1,26 +1,16 @@
 \documentclass{ctexart} % 中文友好
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{lmodern}
+\usepackage[super]{natbib}
 \begin{document}
-你好，\LaTeX！这是 XeLaTeX 自测。我是Jospeh.
-这是一个引用范例\cite{lamport94}。
-这是一个行内公式的测试：$ \frac{z}{d} $
-\begin{equation}\label{1}
-    \int_{0}^{1}f(t)dt = \iint_{D}g(x,y)dxdy.
-\end{equation}
-\begin{equation}\label{2}
-\begin{split}
-\frac{1}{2} (\sin(x+y) + \sin(x-y)) =& \frac{1}{2}(\sin x \cos y + \cos x \sin y)\\
-& + \frac{1}{2} (\sin x \cos y - \cos x \sin y)\\
-=& \sin x \cos y.
-\end{split}
-\end{equation}
-麦克斯韦方程组：
-麦克斯韦方程组是经典电磁学的核心，它用四个偏微分方程统一描述了电场、磁场与电荷、电流之间的相互关系，并预言了电磁波的存在。
+\section{麦克斯韦方程组}
+
+麦克斯韦方程组是经典电磁学的核心，它用四个偏微分方程统一描述了电场、磁场与电荷、电流之间的相互关系，并预言了电磁波的存在\cite{maxwell1865}。
 \subsection*{来历}
 19世纪之前，电学与磁学被视为互不相关的两门学科。1820年，丹麦物理学家奥斯特（H.~C.~Ørsted）发现通电导线能使附近的磁针偏转，第一次揭示了电与磁之间的内在联系；此后安培定量研究了电流之间的磁相互作用，法拉第（M.~Faraday）于1831年发现电磁感应现象，并提出以“力线”描述场的直观思想，为场的观念奠定了基础。
 
-真正将电磁学统一起来的，是英国物理学家麦克斯韦（J.~C.~Maxwell）。1861--1862年，他在《论物理力线》（\textit{On Physical Lines of Force}）中引入“位移电流”的概念，修正了安培定律在非恒定电流情形下的矛盾；1864年，他在《电磁场的动力学理论》（\textit{A Dynamical Theory of the Electromagnetic Field}）中系统给出了以他名字命名的方程组，把电场、磁场、电荷与电流纳入一个自洽的数学框架，并由此预言了电磁波的存在。1873年问世的《电磁通论》（\textit{A Treatise on Electricity and Magnetism}）对这套理论作了完整而严密的阐述。
+真正将电磁学统一起来的，是英国物理学家麦克斯韦（J.~C.~Maxwell）。1861--1862年，他在《论物理力线》（\textit{On Physical Lines of Force}）中引入“位移电流”的概念，修正了安培定律在非恒定电流情形下的矛盾；1864年，他在《电磁场的动力学理论》（\textit{A Dynamical Theory of the Electromagnetic Field}）中系统给出了以他名字命名的方程组\cite{maxwell1865}，把电场、磁场、电荷与电流纳入一个自洽的数学框架，并由此预言了电磁波的存在。1873年问世的《电磁通论》（\textit{A Treatise on Electricity and Magnetism}）对这套理论作了完整而严密的阐述。
 
 1888年，赫兹（H.~Hertz）通过实验证实了电磁波的存在，麦克斯韦的预言得到验证。此后，电磁理论催生了无线电报、雷达与现代通信技术，还促使爱因斯坦从电磁定律在惯性系间的对称性出发创立了狭义相对论，深刻改变了整个物理学与现代文明。
 \begin{equation}
@@ -34,10 +24,15 @@
 \end{equation}
 \subsection*{方程组解释}
 \begin{itemize}
-    \item \textbf{高斯定律}（式一）：$\nabla \cdot \mathbf{D} = \rho$。电场的有源性质——电荷是电场的源，穿过闭合曲面的电通量正比于曲面内所含的自由电荷量。
+    \item \textbf{高斯定律}（式一）：$\nabla \cdot \mathbf{D} = \rho$。电场的有源性质——电荷是电场的源，穿过闭合曲面的电通量正比于曲面内所含的自由电荷量\cite{griffiths2017}。
     \item \textbf{高斯磁定律}（式二）：$\nabla \cdot \mathbf{B} = 0$。磁场的无源性质——不存在磁单极子，磁力线总是闭合的，穿过任意闭合曲面的磁通量恒为零。
     \item \textbf{法拉第电磁感应定律}（式三）：$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$。变化的磁场产生涡旋电场——这是发电机、变压器工作的基本原理。
-    \item \textbf{安培-麦克斯韦定律}（式四）：$\nabla \times \mathbf{H} = \mathbf{J} + \frac{\partial \mathbf{D}}{\partial t}$。电流和变化的电场都能产生磁场，其中位移电流项 $\frac{\partial \mathbf{D}}{\partial t}$ 是麦克斯韦的关键贡献，它使得电磁波的存在成为可能。
+    \item \textbf{安培-麦克斯韦定律}（式四）：$\nabla \times \mathbf{H} = \mathbf{J} + \frac{\partial \mathbf{D}}{\partial t}$。电流和变化的电场都能产生磁场；其中位移电流项是麦克斯韦的关键贡献\cite{maxwell1865}，它使得电磁波的存在成为可能。位移电流定义为
+    \begin{equation}
+        \mathbf{J}_d = \frac{\partial \mathbf{D}}{\partial t},
+        \label{eq:jdis}
+    \end{equation}
+    即变化的电场同样能激发磁场。
 \end{itemize}
 \subsection*{主要应用}
 \begin{enumerate}
@@ -54,35 +49,175 @@
     \item \textbf{电磁波方程}。在无源区域（$\rho = 0$，$\mathbf{J} = 0$）中，对法拉第定律取旋度并代入安培-麦克斯韦定律，得到波动方程：
     \begin{equation}
         \nabla^2 \mathbf{E} - \mu\varepsilon \frac{\partial^2 \mathbf{E}}{\partial t^2} = 0,
+        \label{eq:wave}
     \end{equation}
-    其传播速度 $v = 1/\sqrt{\mu\varepsilon}$。在真空中即光速 $c = 1/\sqrt{\mu_0\varepsilon_0}$，从而揭示光就是电磁波，实现了电学、磁学与光学的统一。
+    其传播速度 $v = 1/\sqrt{\mu\varepsilon}$，在真空中为光速
+    \begin{equation}
+        c = \frac{1}{\sqrt{\mu_0\varepsilon_0}},
+        \label{eq:c}
+    \end{equation}
+    从而揭示光就是电磁波，实现了电学、磁学与光学的统一\cite{maxwell1865,griffiths2017}。
     \item \textbf{电荷守恒定律（连续性方程）}。对安培-麦克斯韦定律取散度，利用矢量恒等式和电荷守恒，得到：
     \begin{equation}
         \nabla \cdot \mathbf{J} + \frac{\partial \rho}{\partial t} = 0.
+        \label{eq:continuity}
     \end{equation}
     这一方程表明电荷既不能创生也不能消灭，仅能从一处流向另一处。
     \item \textbf{坡印廷定理（能量守恒）}。将法拉第定律与安培-麦克斯韦定律联立，可以导出电磁场的能量守恒关系：
     \begin{equation}
         \frac{\partial u}{\partial t} + \nabla \cdot \mathbf{S} = -\mathbf{J} \cdot \mathbf{E},
+        \label{eq:poynting}
     \end{equation}
-    其中能量密度 $u = \frac{1}{2}(\mathbf{E} \cdot \mathbf{D} + \mathbf{B} \cdot \mathbf{H})$，坡印廷矢量 $\mathbf{S} = \mathbf{E} \times \mathbf{H}$ 表示电磁能的流动方向和通量密度。
+    其中能量密度 $u = \frac{1}{2}(\mathbf{E} \cdot \mathbf{D} + \mathbf{B} \cdot \mathbf{H})$，坡印廷矢量 $\mathbf{S} = \mathbf{E} \times \mathbf{H}$ 表示电磁能的流动方向和通量密度\cite{griffiths2017}。
     \item \textbf{库仑定律的等价性}。在静电场条件下（$\partial/\partial t = 0$），高斯定律 $\nabla \cdot \mathbf{E} = \rho/\varepsilon_0$ 通过散度定理等价于库仑定律：
     \begin{equation}
         \mathbf{F} = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}\hat{\mathbf{r}}.
+        \label{eq:coulomb}
     \end{equation}
     \item \textbf{边界条件}。在两种不同介质的交界面处，麦克斯韦方程组的积分形式导出以下边界条件：
     \begin{align}
         D_{1n} - D_{2n} &= \sigma_f, & B_{1n} - B_{2n} &= 0,\\
         E_{1t} - E_{2t} &= 0,      & H_{1t} - H_{2t} &= K_f.
+        \label{eq:bc}
     \end{align}
-    这些条件在电磁波反射与折射、波导和谐振腔分析中至关重要。
+    这些条件在电磁波反射与折射、波导和谐振腔分析中至关重要\cite{griffiths2017}。
     \item \textbf{电磁势与规范不变性}。由 $\nabla \cdot \mathbf{B} = 0$ 引入矢量势 $\mathbf{A}$ 使得 $\mathbf{B} = \nabla \times \mathbf{A}$，代入法拉第定律得 $\mathbf{E} = -\nabla\varphi - \partial\mathbf{A}/\partial t$。规范变换：
     \begin{equation}
         \mathbf{A} \to \mathbf{A} + \nabla\Lambda,\quad \varphi \to \varphi - \frac{\partial\Lambda}{\partial t},
+        \label{eq:gauge}
     \end{equation}
     保持电磁场不变，这一对称性在量子电动力学（QED）中起着基石作用。
 \end{enumerate}
 %TODO 测试注释效果
+
+\section{爱因斯坦的相对论和量子力学}
+
+阿尔伯特·爱因斯坦（A.~Einstein，1879--1955）是 20 世纪最伟大的物理学家之一。他在量子力学诞生之初便奠定了其基石，又独自创立了狭义相对论与广义相对论，深刻重塑了人类对微观世界与宏观时空的认识。下面分领域介绍其主要贡献，并罗列具体成果。
+
+\subsection*{量子力学方面的主要贡献}
+\begin{enumerate}
+    \item \textbf{光量子假说（1905）}：在论文《关于光的产生和转化的一个启发性观点》\cite{einstein1905photoelectric} 中提出光由一个个"光量子"（光子）组成，其能量与动量分别为 $E = h\nu$、$p = h/\lambda$，据此圆满解释了光电效应，给出方程
+    \begin{equation}
+        h\nu = W_0 + E_k,
+        \label{eq:pe-main}
+    \end{equation}
+    其中 $W_0$ 为金属逸出功，$E_k$ 为光电子最大动能；1921 年因此获诺贝尔物理学奖。
+    \item \textbf{固体比热容理论（1907）}：将量子化思想应用于固体中原子的振动，解释了低温下固体比热容随温度下降而减小的实验事实，是量子论早期最重要的应用之一。
+    \item \textbf{受激辐射理论（1916--1917）}：在《关于辐射的量子理论》中引入受激辐射与自发辐射的概念，预言受激辐射的存在，为 20 世纪 60 年代激光（LASER）的发明奠定了理论基础。
+    \item \textbf{玻色--爱因斯坦统计（1924--1925）}：接受玻色（S.~N.~Bose）的光子统计思想\cite{bose1924}并将其推广到全同粒子\cite{einstein1925bose}，提出平均占据数满足
+    \begin{equation}
+        n_i = \frac{1}{e^{(\varepsilon_i - \mu)/k_B T} - 1},
+        \label{eq:be-main}
+    \end{equation}
+    的统计分布，预言低温下大量玻色子会凝聚到同一量子态——玻色--爱因斯坦凝聚（BEC），该现象于 1995 年在实验室中实现。
+    \item \textbf{EPR 悖论（1935）}：与波多尔斯基（B.~Podolsky）、罗森（N.~Rosen）合著论文《物理实在的量子力学描述能否被认为是完备的？》\cite{einstein1935epr}，质疑量子力学的完备性，揭示了"量子纠缠"现象，直接催生了贝尔不等式与量子纠缠的实验研究，成为量子信息科学的理论源头。
+\end{enumerate}
+
+\subsection*{相对论方面的主要贡献}
+\begin{enumerate}
+    \item \textbf{狭义相对论（1905）}：在《论动体的电动力学》\cite{einstein1905sr} 中提出相对性原理与光速不变原理两条基本假设，导出洛伦兹变换，得出时间膨胀与长度收缩
+    \begin{align}
+        \Delta t &= \gamma\,\Delta t_0, & L &= L_0 / \gamma, \qquad \gamma = \frac{1}{\sqrt{1 - v^2/c^2}},
+        \label{eq:sr-main}
+    \end{align}
+    以及同时性的相对性等一系列结论，将力学与电磁学统一于同一时空框架。
+    \item \textbf{质能等价关系（1905）}：在《物体的惯性同它所含的能量有关吗？》\cite{einstein1905mass} 中给出质能方程
+    \begin{equation}
+        E = mc^2,
+        \label{eq:emc2}
+    \end{equation}
+    更一般地有 $E = \gamma mc^2$ 与能量--动量关系 $E^2 = (pc)^2 + (mc^2)^2$，统一了质量与能量，为核裂变、核聚变等核能利用提供了理论基础。
+    \item \textbf{等效原理与广义相对论（1907--1915）}：1907 年提出等效原理，1915 年完成引力场方程\cite{einstein1915field,einstein1916gr}
+    \begin{equation}
+        R_{\mu\nu} - \tfrac{1}{2}g_{\mu\nu}R = \frac{8\pi G}{c^4}T_{\mu\nu},
+        \label{eq:efield-main}
+    \end{equation}
+    将引力解释为时空弯曲的几何效应；1916 年系统发表《广义相对论的基础》。
+    \item \textbf{水星近日点进动}：广义相对论给出轨道近日点每周期进动角
+    \begin{equation}
+        \Delta\varphi = \frac{6\pi GM}{c^2 a(1-e^2)},
+        \label{eq:peri-main}
+    \end{equation}
+    其中 $a$ 为半长轴、$e$ 为偏心率，精确解释了水星每世纪约 43 角秒的剩余进动\cite{einstein1915mercury}，这是广义相对论的三大经典验证之一。
+    \item \textbf{光线偏折预言（1911--1915）}：预言光线经过太阳附近时会偏转
+    \begin{equation}
+        \delta = \frac{4GM}{c^2 b},
+        \label{eq:bend-main}
+    \end{equation}
+    其中 $b$ 为光线到太阳中心的最近距离；1919 年 5 月 29 日日全食期间，爱丁顿（A.~S.~Eddington）等观测队证实了这一预言\cite{dyson1920}，爱因斯坦因此举世闻名。
+    \item \textbf{引力红移预言}：预言在引力势差 $\Delta\Phi$ 作用下光频率改变
+    \begin{equation}
+        \frac{\Delta\nu}{\nu} = \frac{\Delta\Phi}{c^2},
+        \label{eq:rs-main}
+    \end{equation}
+    1960 年庞德（R.~Pound）与雷布卡（G.~Rebka）实验予以证实\cite{pound1960}；其推论"引力时间膨胀"如今用于 GPS 卫星的授时修正。
+    \item \textbf{引力波预言（1916）}：预言时空度规微扰满足波动方程
+    \begin{equation}
+        \Box h_{\mu\nu} = 0,
+        \label{eq:gw-main}
+    \end{equation}
+    即引力波以光速 $c$ 传播；2015 年 9 月，LIGO 首次直接探测到双黑洞并合产生的引力波\cite{abbott2016}，2017 年因此获诺贝尔物理学奖。
+\end{enumerate}
+
+\subsection*{1905 年"奇迹年"四篇奠基论文}
+1905 年爱因斯坦在一年内发表四篇划时代论文，彻底改变了物理学：
+\begin{enumerate}
+    \item \textbf{光量子假说}——《关于光的产生和转化的一个启发性观点》\cite{einstein1905photoelectric}，解释光电效应。
+    \item \textbf{布朗运动理论}——《热的分子运动论所要求的静液体中悬浮粒子的运动》\cite{einstein1905brownian}，为分子的真实存在提供定量依据。
+    \item \textbf{狭义相对论}——《论动体的电动力学》\cite{einstein1905sr}，建立新的时空观。
+    \item \textbf{质能等价}——《物体的惯性同它所含的能量有关吗？》\cite{einstein1905mass}，给出 $E = mc^2$。
+\end{enumerate}
+
+\subsection*{具体成果一览}
+\begin{center}
+\begin{tabular}{@{}p{3.4cm}p{1.5cm}p{5.9cm}@{}}
+\hline
+\textbf{成果} & \textbf{年份} & \textbf{要点与意义} \\
+\hline
+光量子假说（光电效应） & 1905 & 提出光由光子组成，能量 $E = h\nu$；1921 年获诺贝尔物理学奖 \\
+布朗运动理论 & 1905 & 为原子、分子的真实存在提供定量证据 \\
+狭义相对论 & 1905 & 统一时空观，导出时间膨胀、长度收缩 \\
+质能等价关系 & 1905 & $E = mc^2$，为核能利用奠定基础 \\
+固体比热容理论 & 1907 & 量子论在凝聚态领域的早期应用 \\
+广义相对论 & 1915 & 引力即时空弯曲，解释水星近日点进动 \\
+受激辐射理论 & 1916--1917 & 预言受激辐射，奠定激光理论基础 \\
+引力波预言 & 1916 & 2015 年 LIGO 首次直接探测到 \\
+玻色--爱因斯坦统计 & 1924--1925 & 预言 BEC，1995 年实验实现 \\
+EPR 悖论 & 1935 & 揭示量子纠缠，催生量子信息科学 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{核心物理公式}
+以下集中列出与上述成果对应的代表性公式。
+
+\noindent\textbf{量子论方面：}
+\begin{align}
+    E &= h\nu, \label{eq:photon}\\
+    p &= \frac{h}{\lambda} = \frac{h\nu}{c}, \label{eq:photonp}\\
+    h\nu &= W_0 + E_k, \label{eq:pe}\\
+    n_i &= \frac{1}{e^{(\varepsilon_i - \mu)/k_B T} - 1}. \label{eq:be}
+\end{align}
+
+\noindent\textbf{狭义相对论方面：}
+\begin{align}
+    \gamma &= \frac{1}{\sqrt{1 - v^2/c^2}}, \label{eq:gamma}\\
+    \Delta t &= \gamma\,\Delta t_0, \qquad L = L_0 / \gamma, \label{eq:sr}\\
+    E &= \gamma mc^2, \label{eq:e}\\
+    E^2 &= (pc)^2 + (mc^2)^2. \label{eq:e2}
+\end{align}
+
+\noindent\textbf{广义相对论方面：}
+\begin{align}
+    R_{\mu\nu} - \tfrac{1}{2}g_{\mu\nu}R &= \frac{8\pi G}{c^4}T_{\mu\nu}, \label{eq:einstein}\\
+    \Delta\varphi &= \frac{6\pi GM}{c^2 a(1 - e^2)}, \label{eq:perihelion}\\
+    \delta &= \frac{4GM}{c^2 b}, \label{eq:bending}\\
+    \frac{\Delta\nu}{\nu} &= \frac{\Delta\Phi}{c^2}, \label{eq:redshift}\\
+    \Box h_{\mu\nu} &= 0. \label{eq:gw}
+\end{align}
+
+其中：式~(\ref{eq:photon})--(\ref{eq:be}) 依次为光子能量、光子动量、光电效应方程与玻色--爱因斯坦分布；式~(\ref{eq:gamma})--(\ref{eq:e2}) 为洛伦兹因子、时间膨胀与长度收缩、相对论总能量及能量--动量关系；式~(\ref{eq:einstein})--(\ref{eq:gw}) 依次为爱因斯坦场方程、水星近日点进动、光线偏折角、引力红移与引力波波动方程（$\Box$ 为达朗贝尔算符，$h_{\mu\nu}$ 为度规微扰）。
+
 \clearpage
 \bibliographystyle{plain}
 \bibliography{refs}
