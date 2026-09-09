@@ -218,6 +218,98 @@ EPR 悖论 & 1935 & 揭示量子纠缠，催生量子信息科学 \\
 
 其中：式~(\ref{eq:photon})--(\ref{eq:be}) 依次为光子能量、光子动量、光电效应方程与玻色--爱因斯坦分布；式~(\ref{eq:gamma})--(\ref{eq:e2}) 为洛伦兹因子、时间膨胀与长度收缩、相对论总能量及能量--动量关系；式~(\ref{eq:einstein})--(\ref{eq:gw}) 依次为爱因斯坦场方程、水星近日点进动、光线偏折角、引力红移与引力波波动方程（$\Box$ 为达朗贝尔算符，$h_{\mu\nu}$ 为度规微扰）。
 
+\section{薛定谔在量子力学领域的贡献}
+
+埃尔温·薛定谔（E.~Schr{\"o}dinger，1887--1961）是奥地利理论物理学家、波动力学的创立者。1926 年，他在《作为本征值问题的量子化》（\textit{Quantisierung als Eigenwertproblem}）系列论文中建立了以他命名的波动方程，把原子能级的量子化问题转化为微分方程的本征值问题，成功解释了氢原子光谱，并证明了该形式与海森堡的矩阵力学数学等价，奠定了现代量子力学的基础。1933 年，他与狄拉克（P.~A.~M.~Dirac）共同获得诺贝尔物理学奖。
+
+\subsection*{波动力学的创立与薛定谔方程}
+
+1924 年，德布罗意（L.~de~Broglie）提出物质波假说，认为一切实物粒子都具有波动性，满足 $\mathbf{p} = \hbar\mathbf{k}$、$E = \hbar\omega$。薛定谔受此启发，将经典波动方程推广到微观粒子，在系列论文中建立如下基本方程\cite{schrodinger1926}：描述非相对论性量子系统状态随时间演化的\textbf{含时薛定谔方程}
+
+\begin{equation}
+    i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \hat{H}\Psi(\mathbf{r},t)
+    = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r},t)\right]\Psi(\mathbf{r},t),
+    \label{eq:tdse}
+\end{equation}
+
+其中 $\hat{H}$ 为哈密顿算符，$\Psi(\mathbf{r},t)$ 为波函数，$V(\mathbf{r},t)$ 为势能。它是量子力学的基本公设之一，地位相当于经典力学中的牛顿第二定律：一旦给定初始波函数，系统此后任意时刻的状态便由式~(\ref{eq:tdse}) 唯一确定。该方程对时间只含一阶导数、对空间含二阶导数，因而要求 $i\hbar\partial/\partial t$ 与 $-\hbar^2\nabla^2/2m$ 分别对应能量与动能，体现了量子化规则的算符化表述\cite{griffithsqm2018}。
+
+\subsection*{主要方程及其物理意义}
+
+\begin{enumerate}
+    \item \textbf{定态薛定谔方程}。当势能 $V$ 与时间无关时，可分离变量 $\Psi(\mathbf{r},t) = \psi(\mathbf{r})e^{-iEt/\hbar}$，代入式~(\ref{eq:tdse}) 得能量本征值方程
+    \begin{equation}
+        \hat{H}\psi_n(\mathbf{r}) = E_n\psi_n(\mathbf{r}),
+        \label{eq:tise}
+    \end{equation}
+    其平方可积解给出束缚态的本征能谱 $E_n$ 与本征函数 $\psi_n$，量子化不再是人为假设，而是方程在边界条件下的自然结果；相应的定态 $\Psi_n(\mathbf{r},t) = \psi_n(\mathbf{r})e^{-iE_nt/\hbar}$ 的概率密度 $|\Psi_n|^2$ 不随时间改变\cite{griffithsqm2018}。
+    \item \textbf{波函数的概率诠释（玻恩规则）}。薛定谔方程建立后，其波函数的物理意义一度悬而未决；薛定谔本人倾向于"波即电子电荷云"的实在论解释。1926 年，玻恩（M.~Born）在散射问题的研究中提出$|\Psi|^2$ 表示粒子在该处出现的概率密度\cite{born1926}，即
+    \begin{equation}
+        \rho(\mathbf{r},t) = |\Psi(\mathbf{r},t)|^2,\qquad
+        \int_{\mathbb{R}^3}|\Psi(\mathbf{r},t)|^2\,\mathrm{d}^3\mathbf{r} = 1,
+        \label{eq:born}
+    \end{equation}
+    其中归一化条件保证粒子在空间某处必然出现。玻恩规则与薛定谔方程一起构成了量子力学哥本哈根诠释的核心。
+    \item \textbf{概率流守恒（连续性方程）}。由式~(\ref{eq:tdse}) 及其复共轭可以导出概率密度的连续性方程
+    \begin{equation}
+        \frac{\partial\rho}{\partial t} + \nabla\cdot\mathbf{j} = 0,\qquad
+        \mathbf{j} = \frac{\hbar}{2mi}\left(\Psi^*\nabla\Psi - \Psi\nabla\Psi^*\right),
+        \label{eq:probflow}
+    \end{equation}
+    其中 $\mathbf{j}$ 为概率流密度。它表明粒子既不能创生也不能湮灭，概率从一处流向另一处，与经典电动力学中的电荷守恒在形式上完全类似\cite{griffithsqm2018}。
+    \item \textbf{一维无限深方势阱}。对宽度为 $a$ 的势阱，式~(\ref{eq:tise}) 给出本征波函数与能级
+    \begin{equation}
+        \psi_n(x) = \sqrt{\frac{2}{a}}\sin\frac{n\pi x}{a},\qquad
+        E_n = \frac{n^2\pi^2\hbar^2}{2ma^2},\qquad n = 1,2,3,\ldots
+        \label{eq:well}
+    \end{equation}
+    这是量子化源于边界条件的最简单范例：能级与 $n^2$ 成正比，且存在非零的基态能量 $E_1 = \pi^2\hbar^2/(2ma^2)$，与经典情形截然不同。
+    \item \textbf{量子谐振子}。对频率为 $\omega$ 的一维谐振子，其能级为
+    \begin{equation}
+        E_n = \left(n + \frac{1}{2}\right)\hbar\omega,\qquad n = 0,1,2,\ldots
+        \label{eq:ho}
+    \end{equation}
+    式中零点能 $E_0 = \hbar\omega/2$ 在经典理论中不存在；该结果对固体中声子、晶格振动乃至电磁场的量子化普遍适用，是量子场论中"二次量子化"的出发点。
+    \item \textbf{氢原子能级}。薛定谔方程最重大的早期胜利，是严格求解氢原子并导出能级公式
+    \begin{equation}
+        E_n = -\frac{m_e e^4}{2(4\pi\varepsilon_0)^2\hbar^2}\cdot\frac{1}{n^2}
+        = -\frac{13.6~\mathrm{eV}}{n^2},\qquad n = 1,2,3,\ldots
+        \label{eq:hydrogen}
+    \end{equation}
+    结果与玻尔模型一致，却无需人为引入角动量量子化假设；它还自然给出轨道角动量本征值 $L = \sqrt{l(l+1)}\hbar$ 与能级简并度 $n^2$，为后来的电子自旋与精细结构研究开辟了道路\cite{schrodinger1926,griffithsqm2018}。
+\end{enumerate}
+
+\subsection*{波动力学与矩阵力学的统一}
+
+1925 年，海森堡（W.~Heisenberg）从可观测的跃迁频率与强度出发创立了矩阵力学；1926 年，薛定谔证明了波动力学与矩阵力学在数学上完全等价\cite{schrodinger1926,griffithsqm2018}——两者只是量子力学同一公理化体系的两种表示：前者基于波函数与微分方程，后者基于态矢量与矩阵代数。这一等价性表明量子力学是一个自洽而完备的理论框架，也确立了薛定谔方程作为其最便于计算与直觉理解的表述形式，至今仍是原子物理、固体物理与化学中求解量子问题的主要工具。
+
+\subsection*{量子纠缠与"薛定谔的猫"}
+
+1935 年，爱因斯坦等人发表 EPR 悖论文献\cite{einstein1935epr}，质疑量子力学的完备性。薛定谔在同年的《量子力学的当前状况》\cite{schrodinger1935cat} 中系统回应了这场争论，并首次引入"纠缠"（Verschr{\"a}nkung，entanglement）一词，指出两个曾相互作用的子系统即使分开很远，其状态也不能被分别描述；在《分离系统间的概率关系》\cite{schrodinger1935ent} 中他又给出了纠缠态的定量判据。为了凸显叠加原理在宏观尺度下推论的反直觉性，他提出著名的\textbf{"薛定谔的猫"}思想实验：将猫与一个受放射性衰变控制的毒气瓶置于密闭箱中，则按量子力学，在未被观测前猫处于"死"与"活"的叠加态
+
+\begin{equation}
+    |\mathrm{cat}\rangle = \frac{1}{\sqrt{2}}\left(|\mathrm{alive}\rangle + |\mathrm{dead}\rangle\right).
+    \label{eq:cat}
+\end{equation}
+
+这一悖论深刻揭示了测量问题与宏观与微观世界的界线，催生了退相干理论的研究，并已成为量子信息科学的核心概念之一。
+
+\subsection*{具体成果一览}
+\begin{center}
+\begin{tabular}{@{}p{3.6cm}p{1.6cm}p{5.6cm}@{}}
+\hline
+\textbf{成果} & \textbf{年份} & \textbf{要点与意义} \\
+\hline
+建立薛定谔方程 & 1926 & 确立量子力学波动表述，量子化成为本征值问题 \\
+求解氢原子能级 & 1926 & 严格导出 $E_n = -13.6/n^2$ eV，解释光谱 \\
+证明与矩阵力学等价 & 1926 & 统一波动力学与海森堡矩阵力学 \\
+获诺贝尔物理学奖 & 1933 & 与狄拉克分享，表彰其原子理论新形式 \\
+提出"薛定谔的猫" & 1935 & 揭示宏观叠加与量子测量问题 \\
+引入"量子纠缠"概念 & 1935 & 为量子信息科学奠定概念基础 \\
+\hline
+\end{tabular}
+\end{center}
+
 \clearpage
 \bibliographystyle{plain}
 \bibliography{refs}
